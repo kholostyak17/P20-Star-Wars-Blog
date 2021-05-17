@@ -23,7 +23,7 @@ export const Favourites = () => {
 	);
 
 	return (
-		<div>
+		<div className="d-flex justify-content-center">
 			<ul>{favourites}</ul>
 		</div>
 	);

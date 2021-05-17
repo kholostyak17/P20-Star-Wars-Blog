@@ -1,6 +1,12 @@
 /* 
     General Styles
 */
-.size{width: 15rem;
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.size{
+    width: 15rem;
 }
-body{color:rgb(218, 196, 0)}
+body{
+    color:rgb(218, 196, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+}

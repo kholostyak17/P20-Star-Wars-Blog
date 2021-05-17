@@ -7,8 +7,8 @@ export const Home = () => (
 			className="homeImage"
 			src="https://db-api.elestimulo.com/app/uploads/2016/01/Star-Wars-Logo1-1100x572.jpg"
 		/>
-		<a href="#" className="btn btn-warning">
-			If you see this yellow button, the power of jedi is working
+		<a href="#" className="btn btn-warning font-weight-bold">
+			If you see this yellow button, the force power of jedi is working
 		</a>
 	</div>
 );
