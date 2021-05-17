@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 export const Navbar = () => {
 	return (
@@ -15,6 +16,9 @@ export const Navbar = () => {
 			</Link>
 			<Link to="/species">
 				<button className="btn btn-warning font-weight-bold text-dark">Species</button>
+			</Link>
+			<Link to="/favourites">
+				<button className="btn btn-warning font-weight-bold text-dark">Favourites</button>
 			</Link>
 		</nav>
 	);
