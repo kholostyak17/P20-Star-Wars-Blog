@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			getPeople: () => {
-				fetch("https://www.swapi.tech/api/people/", { method: "GET" })
+				fetch("https://www.swapi.tech/api/people?page=1&limit=100", { method: "GET" })
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getSpecies: async () => {
 				try {
-					let response = await fetch("https://www.swapi.tech/api/species/");
+					let response = await fetch("https://www.swapi.tech/api/species?page=1&limit=100");
 
 					if (response.ok) {
 						let responseAsJson = await response.json();
@@ -63,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getPlanets: () => {
-				fetch("https://www.swapi.tech/api/planets/", { method: "GET" })
+				fetch("https://www.swapi.tech/api/planets?page=1&limit=100", { method: "GET" })
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
