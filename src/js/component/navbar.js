@@ -10,7 +10,7 @@ export const Navbar = () => {
 			<Link to="/people">
 				<button className="btn btn-warning">People</button>
 			</Link>
-			<Link to="/">
+			<Link to="/planets">
 				<button className="btn btn-warning">Planets</button>
 			</Link>
 			<Link to="/species">

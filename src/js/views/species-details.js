@@ -20,7 +20,6 @@ export const SpeciesDetails = () => {
 						<ul>
 							<li>Average lifespan ⇨ {store.speciesDetails.result.properties.average_lifespan}</li>
 							<li>Classification ⇨ {store.speciesDetails.result.properties.classification}</li>
-							<li>Designation ⇨ {store.speciesDetails.result.properties.mass} kg</li>
 							<li>Eye colors ⇨ {store.speciesDetails.result.properties.eye_colors}</li>
 							<li>Hair colors ⇨ {store.speciesDetails.result.properties.hair_colors}</li>
 							<li>Homeworld ⇨ {store.speciesDetails.result.properties.homeworld}</li>

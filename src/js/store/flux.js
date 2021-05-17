@@ -4,7 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: {},
 			peopleDetails: {},
 			species: {},
-			speciesDetails: {}
+			speciesDetails: {},
+			planets: {},
+			planetsDetails: {}
 		},
 		actions: {
 			getPeople: () => {
@@ -57,6 +59,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(function(responseAsJson) {
 						console.log(responseAsJson, "joder");
 						setStore({ speciesDetails: responseAsJson });
+					});
+			},
+			getPlanets: () => {
+				fetch("https://www.swapi.tech/api/planets/", { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						setStore({ planets: responseAsJson });
+					});
+			},
+			getPlanetsDetails: uid => {
+				fetch("https://www.swapi.tech/api/planets/".concat(uid), { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson);
+						setStore({ planetsDetails: responseAsJson });
 					});
 			}
 		}

@@ -7,12 +7,9 @@ import { People } from "./views/people";
 import { PeopleDetails } from "./views/people-details";
 import { Species } from "./views/species";
 import { SpeciesDetails } from "./views/species-details";
-/*import { Planets } from "./views/planets";
+import { Planets } from "./views/planets";
 import { PlanetsDetails } from "./views/planets-details";
- */
 
-//import { Demo } from "./views/0demo";
-//import { Single } from "./views/0single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -48,6 +45,12 @@ const Layout = () => {
 						<Route exact path="/species/:id">
 							<SpeciesDetails />
 						</Route>
+						<Route exact path="/planets">
+							<Planets />
+						</Route>
+						<Route exact path="/planets/:id">
+							<PlanetsDetails />
+						</Route>
 						<Route>
 							<h1>sorry, not found :(</h1>
 						</Route>
@@ -60,13 +63,3 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
-
-/*
-                        <Route exact path="/planets">
-							<Planets />
-						</Route>
-                        <Route exact path="/planets/:id">
-							<PlanetsDetails />
-						</Route>
-                        
-*/

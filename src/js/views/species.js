@@ -20,7 +20,7 @@ export const Species = () => {
 								title={elem.name}
 								uid={elem.uid}
 								type="species"
-								description="A person within the Star Wars universe"
+								description="A sepcies within the Star Wars universe"
 								image="https://pm1.narvii.com/6333/d7d97fbf841bd4364933981c69697d309a686cfd_hq.jpg"
 							/>
 						);
@@ -31,13 +31,6 @@ export const Species = () => {
 		[store.species]
 	);
 	console.log("species Cards:", speciesCards);
-
-	/*setCardsMap(
-		store.people[0].results.map((elem, index) => {
-			return <MediaCard key={index.toString()} title={elem.results[index].name} />;
-		})
-	);*/
-	// key={elem.uid} title={elem.name} button={elem.url}
 
 	return <div className=" d-flex flex-wrap justify-content-around">{speciesCards}</div>;
 };
