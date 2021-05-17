@@ -8,13 +8,13 @@ export const Navbar = () => {
 				<span className="navbar-brand mb-0 h1 text-warning">STAR WARS BLOG</span>
 			</Link>
 			<Link to="/people">
-				<button className="btn btn-warning">People</button>
+				<button className="btn btn-warning font-weight-bold text-dark">People</button>
 			</Link>
 			<Link to="/planets">
-				<button className="btn btn-warning">Planets</button>
+				<button className="btn btn-warning font-weight-bold text-dark">Planets</button>
 			</Link>
 			<Link to="/species">
-				<button className="btn btn-warning">Species</button>
+				<button className="btn btn-warning font-weight-bold text-dark">Species</button>
 			</Link>
 		</nav>
 	);

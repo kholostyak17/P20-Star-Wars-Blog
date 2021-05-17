@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			species: {},
 			speciesDetails: {},
 			planets: {},
-			planetsDetails: {}
+			planetsDetails: {},
+			favourites: []
 		},
 		actions: {
 			getPeople: () => {
@@ -85,6 +86,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(responseAsJson);
 						setStore({ planetsDetails: responseAsJson });
 					});
+			},
+			setFavourites: name => {
+				setStore({
+					favourites: [...getStore().favourites, name]
+				});
+				console.log(getStore().favourites);
 			}
 		}
 	};

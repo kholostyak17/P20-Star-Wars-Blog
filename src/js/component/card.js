@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 const Card = props => {
+	const { store, actions } = useContext(Context);
 	const link = "/".concat(props.type, "/", props.uid);
 	return (
 		<div className="size card text-center text-warning bg-dark border-warning m-2">
@@ -15,6 +17,9 @@ const Card = props => {
 						Learn More
 					</a>
 				</Link>
+				<button className="btn bg-transparent text-danger" onClick={() => actions.setFavourites(props.title)}>
+					<i className="fa fa-heart" />
+				</button>
 			</div>
 		</div>
 	);
