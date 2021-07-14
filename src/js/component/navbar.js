@@ -6,24 +6,25 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	const [favourites, setFavourites] = useState([]);
+	const favourites = JSON.parse(localStorage.getItem("favourites"));
+	const [favouritesMap, setFavouritesMap] = useState([]);
 
-	console.log(store.favourites);
+	console.log(favourites, "favourites");
 	useEffect(
 		() => {
-			if (store.favourites != undefined) {
-				setFavourites(
-					store.favourites.map((elem, index) => {
+			if (favourites != undefined) {
+				setFavouritesMap(
+					favourites.map((elem, index) => {
 						return <li key={index.toString()}>{elem}</li>;
 					})
 				);
 			}
 		},
-		[store.favourites]
+		[store.changeFavourites]
 	);
 
 	return (
-		<nav className="navbar navbar-light bg-dark mb-3">
+		<nav className="navbar navbar-light mb-3">
 			<Link to="/home">
 				<span className="navbar-brand mb-0 h1 text-warning">STAR WARS BLOG</span>
 			</Link>
@@ -41,7 +42,11 @@ export const Navbar = () => {
 					Favourites
 				</Dropdown.Toggle>
 
-				<Dropdown.Menu>{favourites}</Dropdown.Menu>
+				<Dropdown.Menu>
+					<div className="d-flex justify-content-center">
+						<ul>{favouritesMap}</ul>
+					</div>
+				</Dropdown.Menu>
 			</Dropdown>
 		</nav>
 	);

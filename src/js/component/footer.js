@@ -8,7 +8,7 @@ export const Footer = () => (
 				className="footerIcon"
 				src="https://www.clipartmax.com/png/middle/6-65135_darth-vader-icon-star-wars-pinterest-star-darth-vader-icon.png"
 			/>{" "}
-			by Iván Jaén, Alberto Corchero & Sergio Carrascal
+			by Iván Jaén
 		</div>
 	</footer>
 );
