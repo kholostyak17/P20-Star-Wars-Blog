@@ -31,7 +31,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						console.log(responseAsJson, "joder");
 						setStore({ peopleDetails: responseAsJson });
 					});
 			},
@@ -58,7 +57,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						console.log(responseAsJson, "joder");
 						setStore({ speciesDetails: responseAsJson });
 					});
 			},
@@ -83,7 +81,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						console.log(responseAsJson);
 						setStore({ planetsDetails: responseAsJson });
 					});
 			},
@@ -95,7 +92,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				if (favourites.findIndex(x => x.name == element.name) == -1) {
 					localStorage.setItem("favourites", JSON.stringify([...favourites, element]));
-					console.log(favourites);
 					console.log(element, " añadido a favoritos");
 				} else {
 					removeItemFromArr(favourites, element);

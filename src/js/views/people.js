@@ -8,7 +8,6 @@ export const People = () => {
 	const { store, actions } = useContext(Context);
 	const [peopleCards, setPeopleCards] = useState([]);
 
-	console.log(store.people.results);
 	useEffect(
 		() => {
 			if (store.people.results != undefined) {
@@ -30,16 +29,13 @@ export const People = () => {
 		},
 		[store.people]
 	);
-	console.log("People Cards:", peopleCards);
-
-	/*setCardsMap(
-		store.people[0].results.map((elem, index) => {
-			return <MediaCard key={index.toString()} title={elem.results[index].name} />;
-		})
-	);*/
-	// key={elem.uid} title={elem.name} button={elem.url}
-
 	return <div className=" d-flex flex-wrap justify-content-around">{peopleCards}</div>;
 };
 
+/*setCardsMap(
+    store.people[0].results.map((elem, index) => {
+        return <MediaCard key={index.toString()} title={elem.results[index].name} />;
+    })
+);*/
+// key={elem.uid} title={elem.name} button={elem.url}
 //Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica

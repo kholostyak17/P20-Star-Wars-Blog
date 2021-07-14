@@ -27,12 +27,10 @@ export const SpeciesDetails = () => {
 						</ul>
 					</>
 				);
-				console.log(store.speciesDetails, "speciesDetails");
 			}
 		},
 		[store.speciesDetails]
 	);
-	console.log({ speciesDetails });
 	return (
 		<div className="container">
 			<div className="row">
@@ -42,7 +40,15 @@ export const SpeciesDetails = () => {
 						src="https://i1.wp.com/wipy.tv/wp-content/uploads/2020/06/ewoks-de-star-wars-sin-pelaje.jpg?resize=1000%2C600&ssl=1"
 					/>
 				</div>
-				<div className="col-6">{speciesDetails}</div>
+				<div className="col-6 d-flex flex-column">
+					{speciesDetails != "" ? (
+						speciesDetails
+					) : (
+						<div className="spinner-border text-warning m-auto" role="status">
+							<span className="sr-only">Loading...</span>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

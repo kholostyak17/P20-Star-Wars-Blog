@@ -8,7 +8,6 @@ export const Planets = () => {
 	const { store, actions } = useContext(Context);
 	const [planetsCards, setPlanetsCards] = useState([]);
 
-	console.log(store.planets.results);
 	useEffect(
 		() => {
 			if (store.planets.results != undefined) {
@@ -30,7 +29,5 @@ export const Planets = () => {
 		},
 		[store.planets]
 	);
-	console.log("Planets Cards:", planetsCards);
-
 	return <div className=" d-flex flex-wrap justify-content-around">{planetsCards}</div>;
 };

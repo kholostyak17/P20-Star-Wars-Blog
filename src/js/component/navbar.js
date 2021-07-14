@@ -9,7 +9,6 @@ export const Navbar = () => {
 	const favourites = JSON.parse(localStorage.getItem("favourites"));
 	const [favouritesMap, setFavouritesMap] = useState([]);
 
-	console.log(favourites, "favourites");
 	useEffect(
 		() => {
 			if (favourites != undefined) {

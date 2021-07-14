@@ -6,7 +6,6 @@ export const PlanetsDetails = () => {
 	const { store, actions } = useContext(Context);
 	const [planetsDetails, setPlanetsDetails] = useState([]);
 	const params = useParams();
-	console.log(store.planetsDetails.result);
 
 	useEffect(() => {
 		actions.getPlanetsDetails(params.id);
@@ -27,7 +26,6 @@ export const PlanetsDetails = () => {
 							<li>Climate ⇨ {store.planetsDetails.result.properties.climate}</li>
 							<li>Terrain ⇨ {store.planetsDetails.result.properties.terrain}</li>
 							<li>Surface Water ⇨ {store.planetsDetails.result.properties.surface_water}</li>
-							<li>Terrain ⇨ {store.planetsDetails.result.properties.terrain}</li>
 							<li>Description ⇨ {store.planetsDetails.result.description}</li>
 						</ul>
 					</>
@@ -46,7 +44,15 @@ export const PlanetsDetails = () => {
 						src="https://sm.ign.com/t/ign_in/gallery/e/every-plan/every-planet-and-location-in-star-wars-battlefront-2s-multip_te1n.1080.jpg"
 					/>
 				</div>
-				<div className="col-6">{planetsDetails}</div>
+				<div className="col-6 d-flex flex-column">
+					{planetsDetails != "" ? (
+						planetsDetails
+					) : (
+						<div className="spinner-border text-warning m-auto" role="status">
+							<span className="sr-only">Loading...</span>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

@@ -6,7 +6,6 @@ export const PeopleDetails = () => {
 	const { store, actions } = useContext(Context);
 	const [peopleDetails, setPeopleDetails] = useState([]);
 	const params = useParams();
-	console.log(store.peopleDetails.result);
 
 	useEffect(() => {
 		actions.getPeopleDetails(params.id);
@@ -44,7 +43,15 @@ export const PeopleDetails = () => {
 						src="https://play-lh.googleusercontent.com/proxy/cUAjPVJwQhMnagGUuZUpTauv4D3Qj7kMe5TLl4mbWyOaF9YzBYmqqbL-e8J3Xj6YU2NJhQJghCNXWLPSzR-GkWpbYQA4Hy6WiIAprIYkbZWBpA=w720-h405-rw"
 					/>
 				</div>
-				<div className="col-6">{peopleDetails}</div>
+				<div className="col-6 d-flex flex-column">
+					{peopleDetails != "" ? (
+						peopleDetails
+					) : (
+						<div className="spinner-border text-warning m-auto" role="status">
+							<span className="sr-only">Loading...</span>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

@@ -8,7 +8,6 @@ export const Species = () => {
 	const { store, actions } = useContext(Context);
 	const [speciesCards, setSpeciesCards] = useState([]);
 
-	console.log(store.species.results);
 	useEffect(
 		() => {
 			if (store.species.results != undefined) {
@@ -30,7 +29,5 @@ export const Species = () => {
 		},
 		[store.species]
 	);
-	console.log("species Cards:", speciesCards);
-
 	return <div className=" d-flex flex-wrap justify-content-around">{speciesCards}</div>;
 };
