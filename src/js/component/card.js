@@ -10,7 +10,7 @@ const Card = props => {
 
 	useEffect(
 		() => {
-			if (JSON.parse(localStorage.getItem("favourites")).includes(props.title)) {
+			if (JSON.parse(localStorage.getItem("favourites")).findIndex(x => x.name == props.title) >= 0) {
 				setHeartColor("text-danger");
 			} else {
 				setHeartColor("text-white");
@@ -31,7 +31,9 @@ const Card = props => {
 							Learn More
 						</a>
 					</Link>
-					<button className="btn bg-transparent p-0" onClick={() => actions.setFavourites(props.title)}>
+					<button
+						className="btn bg-transparent p-0"
+						onClick={() => actions.setFavourites({ name: props.title, id: props.uid, type: props.type })}>
 						<div className="icon-heart">
 							<span className={heartColor.concat(" fav-icon-size")}>❥</span>
 						</div>
