@@ -14,8 +14,25 @@ export const Navbar = () => {
 		() => {
 			if (favourites != undefined) {
 				setFavouritesMap(
-					favourites.map((elem, index) => {
-						return <li key={index.toString()}>{elem}</li>;
+					favourites.map((element, index) => {
+						return (
+							<div className="d-flex justify-content-between flex-nowrap" key={index.toString()}>
+								<a href={"/".concat(element.type, "/", element.id)}>
+									<span>{element.name}</span>
+								</a>
+								<button
+									className="btn bg-transparent p-0"
+									onClick={() =>
+										actions.setFavourites({
+											name: element.name,
+											id: element.id,
+											type: element.type
+										})
+									}>
+									<div className="text-danger">Delete</div>
+								</button>
+							</div>
+						);
 					})
 				);
 			}
@@ -38,13 +55,13 @@ export const Navbar = () => {
 				<button className="btn btn-warning font-weight-bold text-dark">Species</button>
 			</Link>
 			<Dropdown>
-				<Dropdown.Toggle className="text-dark" variant="warning" id="dropdown-basic">
+				<Dropdown.Toggle className="text-dark font-weight-bold" variant="warning" id="dropdown-basic">
 					Favourites
 				</Dropdown.Toggle>
 
 				<Dropdown.Menu>
-					<div className="d-flex justify-content-center">
-						<ul>{favouritesMap}</ul>
+					<div className="flex-column mx-1">
+						{favouritesMap != "" ? favouritesMap : "Todavía no hay favoritos."}
 					</div>
 				</Dropdown.Menu>
 			</Dropdown>
