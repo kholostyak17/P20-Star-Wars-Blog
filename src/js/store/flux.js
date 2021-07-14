@@ -87,19 +87,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ planetsDetails: responseAsJson });
 					});
 			},
-			setFavourites: name => {
+			setFavourites: element => {
 				let favourites = JSON.parse(localStorage.getItem("favourites"));
-				const removeItemFromArr = (arr, item) => {
-					var i = arr.indexOf(item);
-					arr.splice(i, 1);
+				const removeItemFromArr = (myArray, element) => {
+					let index = myArray.findIndex(x => x.name == element.name);
+					myArray.splice(index, 1);
 				};
-				if (!favourites.includes(name)) {
-					localStorage.setItem("favourites", JSON.stringify([...favourites, name]));
-					console.log(name, " añadido a favoritos");
+				if (favourites.findIndex(x => x.name == element.name) == -1) {
+					localStorage.setItem("favourites", JSON.stringify([...favourites, element]));
+					console.log(favourites);
+					console.log(element, " añadido a favoritos");
 				} else {
-					removeItemFromArr(favourites, name);
+					removeItemFromArr(favourites, element);
 					localStorage.setItem("favourites", JSON.stringify(favourites));
-					console.log(name, " borrado de favoritos");
+					console.log(element, " borrado de favoritos");
 				}
 				setStore({ changeFavourites: !getStore().changeFavourites });
 			}
