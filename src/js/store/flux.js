@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			speciesDetails: {},
 			planets: {},
 			planetsDetails: {},
-			favourites: []
+			changeFavourites: false
 		},
 		actions: {
 			getPeople: () => {
@@ -88,10 +88,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			setFavourites: name => {
-				setStore({
-					favourites: [...getStore().favourites, name]
-				});
-				console.log(getStore().favourites);
+				let favourites = JSON.parse(localStorage.getItem("favourites"));
+				const removeItemFromArr = (arr, item) => {
+					var i = arr.indexOf(item);
+					arr.splice(i, 1);
+				};
+				if (!favourites.includes(name)) {
+					localStorage.setItem("favourites", JSON.stringify([...favourites, name]));
+					console.log(name, " añadido a favoritos");
+				} else {
+					removeItemFromArr(favourites, name);
+					localStorage.setItem("favourites", JSON.stringify(favourites));
+					console.log(name, " borrado de favoritos");
+				}
+				setStore({ changeFavourites: !getStore().changeFavourites });
 			}
 		}
 	};

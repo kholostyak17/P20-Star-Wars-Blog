@@ -20,6 +20,9 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			if (!localStorage.getItem("favourites")) {
+				localStorage.setItem("favourites", JSON.stringify([]));
+			}
 			state.actions.getPeople();
 			state.actions.getSpecies();
 			state.actions.getPlanets();
